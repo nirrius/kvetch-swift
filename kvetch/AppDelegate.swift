@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Nirrius. All rights reserved.
 //
 
+import Parse
+import Bolts
 import UIKit
 
 @UIApplicationMain
@@ -16,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Parse.setApplicationId("W35VTEicngcQGNj1oPbSRR4eaHOcaYkD0zw7Rmgf", clientKey: "u5aWKUJWqe3Nih2U3dQ1CC0iSEkBr3ybgMPBy8UN")
         return true
     }
 
