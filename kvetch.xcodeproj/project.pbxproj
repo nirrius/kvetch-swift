@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		07E336C11B00103D001C427C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E336C01B00103D001C427C /* AppDelegate.swift */; };
-		07E336C31B00103D001C427C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E336C21B00103D001C427C /* FirstViewController.swift */; };
-		07E336C51B00103D001C427C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E336C41B00103D001C427C /* SecondViewController.swift */; };
+		07E336C31B00103D001C427C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E336C21B00103D001C427C /* ChatViewController.swift */; };
+		07E336C51B00103D001C427C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E336C41B00103D001C427C /* SettingsViewController.swift */; };
 		07E336C81B00103D001C427C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07E336C61B00103D001C427C /* Main.storyboard */; };
 		07E336CA1B00103D001C427C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07E336C91B00103D001C427C /* Images.xcassets */; };
 		07E336CD1B00103D001C427C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E336CB1B00103D001C427C /* LaunchScreen.xib */; };
 		07E336D91B00103E001C427C /* kvetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E336D81B00103E001C427C /* kvetchTests.swift */; };
+		07E336E31B001C7A001C427C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 07E336E21B001C7A001C427C /* Settings.bundle */; };
 		2CD59A511B0011FD0057D381 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD59A501B0011FD0057D381 /* Bolts.framework */; };
 		2CD59A531B0012080057D381 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD59A521B0012080057D381 /* Parse.framework */; };
 		2CD59A551B0012120057D381 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD59A541B0012120057D381 /* AudioToolbox.framework */; };
@@ -43,14 +44,15 @@
 		07E336BB1B00103D001C427C /* kvetch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kvetch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E336BF1B00103D001C427C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07E336C01B00103D001C427C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		07E336C21B00103D001C427C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		07E336C41B00103D001C427C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		07E336C21B00103D001C427C /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		07E336C41B00103D001C427C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		07E336C71B00103D001C427C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07E336C91B00103D001C427C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07E336CC1B00103D001C427C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		07E336D21B00103E001C427C /* kvetchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kvetchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E336D71B00103E001C427C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07E336D81B00103E001C427C /* kvetchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kvetchTests.swift; sourceTree = "<group>"; };
+		07E336E21B001C7A001C427C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2CD59A501B0011FD0057D381 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Parse/parse-library-1.7.2/Bolts.framework"; sourceTree = "<group>"; };
 		2CD59A521B0012080057D381 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Parse/parse-library-1.7.2/Parse.framework"; sourceTree = "<group>"; };
 		2CD59A541B0012120057D381 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -100,6 +102,7 @@
 		07E336B21B00103D001C427C = {
 			isa = PBXGroup;
 			children = (
+				07E336E21B001C7A001C427C /* Settings.bundle */,
 				2CD59A681B00125B0057D381 /* libsqlite3.dylib */,
 				2CD59A661B0012520057D381 /* libz.dylib */,
 				2CD59A641B0012470057D381 /* SystemConfiguration.framework */,
@@ -132,8 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				07E336C01B00103D001C427C /* AppDelegate.swift */,
-				07E336C21B00103D001C427C /* FirstViewController.swift */,
-				07E336C41B00103D001C427C /* SecondViewController.swift */,
+				07E336C21B00103D001C427C /* ChatViewController.swift */,
+				07E336C41B00103D001C427C /* SettingsViewController.swift */,
 				07E336C61B00103D001C427C /* Main.storyboard */,
 				07E336C91B00103D001C427C /* Images.xcassets */,
 				07E336CB1B00103D001C427C /* LaunchScreen.xib */,
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07E336E31B001C7A001C427C /* Settings.bundle in Resources */,
 				07E336C81B00103D001C427C /* Main.storyboard in Resources */,
 				07E336CD1B00103D001C427C /* LaunchScreen.xib in Resources */,
 				07E336CA1B00103D001C427C /* Images.xcassets in Resources */,
@@ -267,9 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07E336C51B00103D001C427C /* SecondViewController.swift in Sources */,
+				07E336C51B00103D001C427C /* SettingsViewController.swift in Sources */,
 				07E336C11B00103D001C427C /* AppDelegate.swift in Sources */,
-				07E336C31B00103D001C427C /* FirstViewController.swift in Sources */,
+				07E336C31B00103D001C427C /* ChatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
