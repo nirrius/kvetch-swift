@@ -18,7 +18,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        Parse.setApplicationId("W35VTEicngcQGNj1oPbSRR4eaHOcaYkD0zw7Rmgf", clientKey: "u5aWKUJWqe3Nih2U3dQ1CC0iSEkBr3ybgMPBy8UN")
+        
+        var messageRepo = MessageRepository(parseId: "W35VTEicngcQGNj1oPbSRR4eaHOcaYkD0zw7Rmgf", parseKey: "u5aWKUJWqe3Nih2U3dQ1CC0iSEkBr3ybgMPBy8UN")
+        
+        
+//        var mess = Message(body: "test0??", author: "Jonah")
+//        mess["avatar"] = "Gooby goo"
+//        var e = mess.save()
+//        println("sucess? \(e)")
+
+        
+        messageRepo.getMessages { (messages, error) -> Void in
+            if let e = error {
+                println("Error! \(e)")
+            }
+            if let mess = messages {
+                for message in mess {
+                    println("\(message.objectId) - \(message.author): \(message.body)")
+                }
+            }
+        }
+        
+        
+        
         return true
     }
 

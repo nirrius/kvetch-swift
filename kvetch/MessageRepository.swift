@@ -9,20 +9,30 @@
 import Foundation
 import Parse
 
+typealias Error = NSError
+
 class MessageRepository {
+    
+    
     init(parseId: String, parseKey: String) {
-        //blah blah todo
+        // id: "W35VTEicngcQGNj1oPbSRR4eaHOcaYkD0zw7Rmgf"
+        // key: "u5aWKUJWqe3Nih2U3dQ1CC0iSEkBr3ybgMPBy8UN"
+        Parse.setApplicationId(parseId, clientKey: parseKey)
+        
     }
     
-    func getMessages() -> [Message] {
-        var messages = [
-            Message(body: "hi", author: "Eric"),
-            Message(body: "yo", author: "Jonah"),
-            Message(body: "should'nt we say something important? First convo and all", author: "Eric"),
-            Message(body: "let's fix our typos first ^^", author: "Jonah"),
-            Message(body: "asshole....", author: "Eric")
-        ]
+    func getMessages(cb: (messages: [Message]?, error: Error?) -> Void) {
+       
+        var recent = PFQuery(className: Message.parseClassName())
+        recent.limit = 20
         
-        return messages
+        recent.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if let messages = objects {
+                cb(messages: (messages as! [Message]), error: error)
+            } else {
+                cb(messages: nil, error: error)
+            }
+        }
     }
+
 }

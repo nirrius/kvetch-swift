@@ -6,14 +6,33 @@
 //  Copyright (c) 2015 Nirrius. All rights reserved.
 //
 
-import Foundation
+import Parse
 
-class Message {
-    var author = "Anonymous"
-    var body = ""
+class Message : PFObject, PFSubclassing {
+    @NSManaged var author : String
+    @NSManaged var body : String
+    
+    override init() {
+        super.init()
+    }
     
     init(body: String, author: String) {
-        self.author = author
-        self.body = body
+        super.init()
+        self["author"] = author
+        self["body"] = body
     }
+    
+    override class func initialize() {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0;
+        }
+        dispatch_once(&Static.onceToken) {
+            self.registerSubclass()
+        }
+    }
+    
+    static func parseClassName() -> String {
+        return "Message"
+    }
+    
 }
