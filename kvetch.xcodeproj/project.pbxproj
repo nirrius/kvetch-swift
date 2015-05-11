@@ -30,6 +30,9 @@
 		2CD59A691B00125B0057D381 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD59A681B00125B0057D381 /* libsqlite3.dylib */; };
 		2CD59A6B1B001A320057D381 /* MessageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD59A6A1B001A320057D381 /* MessageRepository.swift */; };
 		2CD59A6D1B001BD30057D381 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD59A6C1B001BD30057D381 /* Message.swift */; };
+		2CD5E5871B00943D00A4251C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD5E5841B00943D00A4251C /* Fabric.framework */; };
+		2CD5E5881B00943D00A4251C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD5E5851B00943D00A4251C /* TwitterKit.framework */; };
+		2CD5E5891B00943D00A4251C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CD5E5861B00943D00A4251C /* TwitterKitResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		2CD59A6A1B001A320057D381 /* MessageRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRepository.swift; sourceTree = "<group>"; };
 		2CD59A6C1B001BD30057D381 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2CD59A741B0026250057D381 /* kvetch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kvetch-Bridging-Header.h"; sourceTree = "<group>"; };
+		2CD5E5841B00943D00A4251C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		2CD5E5851B00943D00A4251C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		2CD5E5861B00943D00A4251C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +91,11 @@
 				2CD59A611B0012340057D381 /* Security.framework in Frameworks */,
 				2CD59A5F1B00122F0057D381 /* QuartzCore.framework in Frameworks */,
 				2CD59A5D1B0012290057D381 /* MobileCoreServices.framework in Frameworks */,
+				2CD5E5871B00943D00A4251C /* Fabric.framework in Frameworks */,
 				2CD59A5B1B0012240057D381 /* CoreLocation.framework in Frameworks */,
 				2CD59A591B00121E0057D381 /* CoreGraphics.framework in Frameworks */,
 				2CD59A571B0012180057D381 /* CFNetwork.framework in Frameworks */,
+				2CD5E5881B00943D00A4251C /* TwitterKit.framework in Frameworks */,
 				2CD59A551B0012120057D381 /* AudioToolbox.framework in Frameworks */,
 				2CD59A531B0012080057D381 /* Parse.framework in Frameworks */,
 				2CD59A511B0011FD0057D381 /* Bolts.framework in Frameworks */,
@@ -107,6 +115,9 @@
 		07E336B21B00103D001C427C = {
 			isa = PBXGroup;
 			children = (
+				2CD5E5841B00943D00A4251C /* Fabric.framework */,
+				2CD5E5851B00943D00A4251C /* TwitterKit.framework */,
+				2CD5E5861B00943D00A4251C /* TwitterKitResources.bundle */,
 				07E336E21B001C7A001C427C /* Settings.bundle */,
 				2CD59A741B0026250057D381 /* kvetch-Bridging-Header.h */,
 				2CD59A681B00125B0057D381 /* libsqlite3.dylib */,
@@ -188,6 +199,7 @@
 				07E336B71B00103D001C427C /* Sources */,
 				07E336B81B00103D001C427C /* Frameworks */,
 				07E336B91B00103D001C427C /* Resources */,
+				2CD5E5831B0093FF00A4251C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -262,6 +274,7 @@
 				07E336C81B00103D001C427C /* Main.storyboard in Resources */,
 				07E336CD1B00103D001C427C /* LaunchScreen.xib in Resources */,
 				07E336CA1B00103D001C427C /* Images.xcassets in Resources */,
+				2CD5E5891B00943D00A4251C /* TwitterKitResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +286,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CD5E5831B0093FF00A4251C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 79abdea8e6211f9f1d08d98e574efca56a3c520a 37d73cf7b3175f87650a0026ef6677e939fb6bf6848ae05aec78df7e350d5200";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07E336B71B00103D001C427C /* Sources */ = {
@@ -416,6 +445,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Parse/parse-library-1.7.2",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = kvetch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -433,6 +463,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Parse/parse-library-1.7.2",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = kvetch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

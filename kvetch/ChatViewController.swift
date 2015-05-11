@@ -8,12 +8,22 @@
 
 import UIKit
 import Parse
+import TwitterKit
 
 class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let logInButton = TWTRLogInButton(logInCompletion: {
+            (session: TWTRSession!, error: NSError!) in
+            // play with Twitter session
+        })
+        logInButton.center = self.view.center
+        self.view.addSubview(logInButton)
+
+        
         
         let testObject = PFObject(className: "TestObject")
         testObject["foo"] = "bar"
