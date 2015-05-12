@@ -33,6 +33,7 @@
 		2CD5E5871B00943D00A4251C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD5E5841B00943D00A4251C /* Fabric.framework */; };
 		2CD5E5881B00943D00A4251C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD5E5851B00943D00A4251C /* TwitterKit.framework */; };
 		2CD5E5891B00943D00A4251C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CD5E5861B00943D00A4251C /* TwitterKitResources.bundle */; };
+		B2094209ED6A5531E782EC19 /* libPods-kvetch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB29C11406A9B13CA612602B /* libPods-kvetch.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,9 @@
 		2CD5E5841B00943D00A4251C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		2CD5E5851B00943D00A4251C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		2CD5E5861B00943D00A4251C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		39C2B4BF0DD7179BC981E385 /* Pods-kvetch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kvetch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kvetch/Pods-kvetch.debug.xcconfig"; sourceTree = "<group>"; };
+		84C12C1426367140C3A20A12 /* Pods-kvetch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kvetch.release.xcconfig"; path = "Pods/Target Support Files/Pods-kvetch/Pods-kvetch.release.xcconfig"; sourceTree = "<group>"; };
+		FB29C11406A9B13CA612602B /* libPods-kvetch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kvetch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 				2CD59A551B0012120057D381 /* AudioToolbox.framework in Frameworks */,
 				2CD59A531B0012080057D381 /* Parse.framework in Frameworks */,
 				2CD59A511B0011FD0057D381 /* Bolts.framework in Frameworks */,
+				B2094209ED6A5531E782EC19 /* libPods-kvetch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +141,8 @@
 				07E336BD1B00103D001C427C /* kvetch */,
 				07E336D51B00103E001C427C /* kvetchTests */,
 				07E336BC1B00103D001C427C /* Products */,
+				1121744320C6DC60FADFE058 /* Pods */,
+				9D7A042DD3B43A950E097BE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +196,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1121744320C6DC60FADFE058 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39C2B4BF0DD7179BC981E385 /* Pods-kvetch.debug.xcconfig */,
+				84C12C1426367140C3A20A12 /* Pods-kvetch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D7A042DD3B43A950E097BE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB29C11406A9B13CA612602B /* libPods-kvetch.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,10 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07E336DC1B00103E001C427C /* Build configuration list for PBXNativeTarget "kvetch" */;
 			buildPhases = (
+				3129FA5A617D8D9B5916FB3D /* Check Pods Manifest.lock */,
 				07E336B71B00103D001C427C /* Sources */,
 				07E336B81B00103D001C427C /* Frameworks */,
 				07E336B91B00103D001C427C /* Resources */,
 				2CD5E5831B0093FF00A4251C /* ShellScript */,
+				C89F49696A6F6AF949972201 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -300,6 +326,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 79abdea8e6211f9f1d08d98e574efca56a3c520a 37d73cf7b3175f87650a0026ef6677e939fb6bf6848ae05aec78df7e350d5200";
+		};
+		3129FA5A617D8D9B5916FB3D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C89F49696A6F6AF949972201 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kvetch/Pods-kvetch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -439,6 +495,7 @@
 		};
 		07E336DD1B00103E001C427C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39C2B4BF0DD7179BC981E385 /* Pods-kvetch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -457,6 +514,7 @@
 		};
 		07E336DE1B00103E001C427C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C12C1426367140C3A20A12 /* Pods-kvetch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

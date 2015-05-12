@@ -10,5 +10,6 @@
 #define kvetch_kvetch_Bridging_Header_h
 
 #import <Parse/PFObject+Subclass.h>
-
+#import "JSQMessages.h"
+#import "JSQMessageData.h"
 #endif
