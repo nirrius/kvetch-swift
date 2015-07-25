@@ -15,6 +15,10 @@
 		07E336CD1B00103D001C427C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E336CB1B00103D001C427C /* LaunchScreen.xib */; };
 		07E336D91B00103E001C427C /* kvetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E336D81B00103E001C427C /* kvetchTests.swift */; };
 		07E336E31B001C7A001C427C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 07E336E21B001C7A001C427C /* Settings.bundle */; };
+		2CBFA0D81B112AAC005D8FF4 /* chatTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBFA0D71B112AAC005D8FF4 /* chatTableViewDataSource.swift */; };
+		2CBFA0DC1B112ABF005D8FF4 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBFA0D91B112ABF005D8FF4 /* TwitterCore.framework */; };
+		2CBFA0DD1B112ABF005D8FF4 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBFA0DA1B112ABF005D8FF4 /* DigitsKit.framework */; };
+		2CBFA0DE1B112ABF005D8FF4 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CBFA0DB1B112ABF005D8FF4 /* DigitsKitResources.bundle */; };
 		2CD59A511B0011FD0057D381 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD59A501B0011FD0057D381 /* Bolts.framework */; };
 		2CD59A531B0012080057D381 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD59A521B0012080057D381 /* Parse.framework */; };
 		2CD59A551B0012120057D381 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD59A541B0012120057D381 /* AudioToolbox.framework */; };
@@ -58,6 +62,10 @@
 		07E336D71B00103E001C427C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07E336D81B00103E001C427C /* kvetchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kvetchTests.swift; sourceTree = "<group>"; };
 		07E336E21B001C7A001C427C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2CBFA0D71B112AAC005D8FF4 /* chatTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatTableViewDataSource.swift; sourceTree = "<group>"; };
+		2CBFA0D91B112ABF005D8FF4 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		2CBFA0DA1B112ABF005D8FF4 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
+		2CBFA0DB1B112ABF005D8FF4 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
 		2CD59A501B0011FD0057D381 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Parse/parse-library-1.7.2/Bolts.framework"; sourceTree = "<group>"; };
 		2CD59A521B0012080057D381 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Parse/parse-library-1.7.2/Parse.framework"; sourceTree = "<group>"; };
 		2CD59A541B0012120057D381 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -97,6 +105,8 @@
 				2CD59A571B0012180057D381 /* CFNetwork.framework in Frameworks */,
 				2CD5E5881B00943D00A4251C /* TwitterKit.framework in Frameworks */,
 				2CD59A551B0012120057D381 /* AudioToolbox.framework in Frameworks */,
+				2CBFA0DD1B112ABF005D8FF4 /* DigitsKit.framework in Frameworks */,
+				2CBFA0DC1B112ABF005D8FF4 /* TwitterCore.framework in Frameworks */,
 				2CD59A531B0012080057D381 /* Parse.framework in Frameworks */,
 				2CD59A511B0011FD0057D381 /* Bolts.framework in Frameworks */,
 			);
@@ -136,6 +146,9 @@
 				07E336BD1B00103D001C427C /* kvetch */,
 				07E336D51B00103E001C427C /* kvetchTests */,
 				07E336BC1B00103D001C427C /* Products */,
+				2CBFA0D91B112ABF005D8FF4 /* TwitterCore.framework */,
+				2CBFA0DA1B112ABF005D8FF4 /* DigitsKit.framework */,
+				2CBFA0DB1B112ABF005D8FF4 /* DigitsKitResources.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +164,7 @@
 		07E336BD1B00103D001C427C /* kvetch */ = {
 			isa = PBXGroup;
 			children = (
+				2CBFA0D71B112AAC005D8FF4 /* chatTableViewDataSource.swift */,
 				07E336C01B00103D001C427C /* AppDelegate.swift */,
 				07E336C21B00103D001C427C /* ChatViewController.swift */,
 				07E336C41B00103D001C427C /* SettingsViewController.swift */,
@@ -272,6 +286,7 @@
 			files = (
 				07E336E31B001C7A001C427C /* Settings.bundle in Resources */,
 				07E336C81B00103D001C427C /* Main.storyboard in Resources */,
+				2CBFA0DE1B112ABF005D8FF4 /* DigitsKitResources.bundle in Resources */,
 				07E336CD1B00103D001C427C /* LaunchScreen.xib in Resources */,
 				07E336CA1B00103D001C427C /* Images.xcassets in Resources */,
 				2CD5E5891B00943D00A4251C /* TwitterKitResources.bundle in Resources */,
@@ -312,6 +327,7 @@
 				07E336C11B00103D001C427C /* AppDelegate.swift in Sources */,
 				07E336C31B00103D001C427C /* ChatViewController.swift in Sources */,
 				2CD59A6D1B001BD30057D381 /* Message.swift in Sources */,
+				2CBFA0D81B112AAC005D8FF4 /* chatTableViewDataSource.swift in Sources */,
 				2CD59A6B1B001A320057D381 /* MessageRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

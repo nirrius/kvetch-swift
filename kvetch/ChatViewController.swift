@@ -12,6 +12,15 @@ import TwitterKit
 
 class ChatViewController: UIViewController {
 
+    var chatDataSource : chatTableViewDataSource
+    var messageRepo : MessageRepository
+    
+    required init(coder : NSCoder) {
+        self.chatDataSource = chatTableViewDataSource()
+        messageRepo = MessageRepository(parseId: "W35VTEicngcQGNj1oPbSRR4eaHOcaYkD0zw7Rmgf", parseKey: "u5aWKUJWqe3Nih2U3dQ1CC0iSEkBr3ybgMPBy8UN")
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,14 +36,21 @@ class ChatViewController: UIViewController {
             var rect = CGRectMake(CGFloat(x), CGFloat(y), CGFloat(w), CGFloat(h))
             var table = UITableView(frame: rect, style: UITableViewStyle.Plain)
             table.backgroundColor = color
+            table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "chatCell")
+            table.dataSource = self.chatDataSource
+            table.reloadData()
             self.view.addSubview(table)
             return table
         }
         
     
         let table = addTable(0, 0, Int(view.bounds.width), Int(view.bounds.height), UIColor.yellowColor())
-        table.dataSource = chatTableViewDataSource()
         
+        messageRepo.getMessages { (messages, error) -> Void in
+            self.chatDataSource.messageBuffer = messages!
+            table.reloadData()
+            println("reloaded table after getting messages")
+        }
         
         
         

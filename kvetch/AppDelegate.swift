@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Twitter()])
         
-        var messageRepo = MessageRepository(parseId: "W35VTEicngcQGNj1oPbSRR4eaHOcaYkD0zw7Rmgf", parseKey: "u5aWKUJWqe3Nih2U3dQ1CC0iSEkBr3ybgMPBy8UN")
+//        var messageRepo = MessageRepository(parseId: "W35VTEicngcQGNj1oPbSRR4eaHOcaYkD0zw7Rmgf", parseKey: "u5aWKUJWqe3Nih2U3dQ1CC0iSEkBr3ybgMPBy8UN")
         
         
 //        var mess = Message(body: "test0??", author: "Jonah")
@@ -32,17 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        var e = mess.save()
 //        println("sucess? \(e)")
 
-        
-        messageRepo.getMessages { (messages, error) -> Void in
-            if let e = error {
-                println("Error! \(e)")
-            }
-            if let mess = messages {
-                for message in mess {
-                    println("\(message.objectId) - \(message.author): \(message.body)")
-                }
-            }
-        }
+//        
+//        messageRepo.getMessages { (messages, error) -> Void in
+//            if let e = error {
+//                println("Error! \(e)")
+//            }
+//            if let mess = messages {
+//                for message in mess {
+//                    println("\(message.objectId) - \(message.author): \(message.body)")
+//                }
+//            }
+//        }
         
         
         
