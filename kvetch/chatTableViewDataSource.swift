@@ -11,10 +11,10 @@ import Foundation
 class chatTableViewDataSource : NSObject, UITableViewDataSource {
     
     var messageBuffer : [Message] = [Message]()
+
     
     override init() {
-        
-    }
+            }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1 // This was put in mainly for my own unit testing
@@ -24,7 +24,7 @@ class chatTableViewDataSource : NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("chatCell", forIndexPath: indexPath) as! UITableViewCell
         
         // cell.detailTextLabel?.text = "detail text label"
-        let message : Message = messageBuffer[0]
+        let message : Message = messageBuffer[indexPath.item]
         cell.textLabel?.text = message.objectForKey("body") as? String
         
         
@@ -34,6 +34,4 @@ class chatTableViewDataSource : NSObject, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageBuffer.count
     }
-    
-    
 }

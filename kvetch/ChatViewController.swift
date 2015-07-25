@@ -14,6 +14,7 @@ class ChatViewController: UIViewController {
 
     var chatDataSource : chatTableViewDataSource
     var messageRepo : MessageRepository
+    var newMessageTimer: dispatch_source_t!
     
     required init(coder : NSCoder) {
         self.chatDataSource = chatTableViewDataSource()
@@ -52,8 +53,37 @@ class ChatViewController: UIViewController {
             println("reloaded table after getting messages")
         }
         
+        func messageDelta(currentMessages: [Message], oldLastId: String) -> [Message] {
+            var indexOfOld = -1;
+            for i in 0..<currentMessages.count {
+                if (currentMessages[i].objectId == oldLastId) {
+                    indexOfOld = i;
+                }
+            }
+            return Array<Message>(currentMessages[indexOfOld+1..<currentMessages.count])
+        }
+        
+        func handleNewMessages(closure: ([Message]) -> Void) -> Void {
+            newMessageTimer = interval(1) {
+                println("checking for new messages")
+                self.messageRepo.getMessages { (currentMessages, error) -> Void in
+                    if (currentMessages == nil || currentMessages!.count == 0) {
+                        return
+                    }
+                    let oldLastId = self.chatDataSource.messageBuffer.last?.objectId
+                    if (currentMessages!.last?.objectId != oldLastId) {
+                        let newMessages = messageDelta(currentMessages!, oldLastId!)
+                        closure(newMessages)
+                    }
+                }
+            }
+        }
         
         
+        handleNewMessages { (messages: [Message]) -> Void in
+            self.chatDataSource.messageBuffer += messages
+            table.reloadData()
+        }
         
         
 //        let testObject = PFObject(className: "TestObject")
@@ -61,6 +91,15 @@ class ChatViewController: UIViewController {
 //        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
 //            println("Object has been saved.")
 //        }
+    }
+    
+    func interval(interval: UInt64, closure: () -> Void) -> dispatch_source_t! {
+        let queue = dispatch_queue_create("com.domain.app.timer", nil)
+        let timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, interval * NSEC_PER_SEC, 1 * NSEC_PER_SEC)
+        dispatch_source_set_event_handler(timer, closure)
+        dispatch_resume(timer)
+        return timer
     }
 
     override func didReceiveMemoryWarning() {
