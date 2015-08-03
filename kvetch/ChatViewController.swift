@@ -11,6 +11,7 @@ import Parse
 import TwitterKit
 
 class ChatViewController: UIViewController {
+    var jonahsBlue : UIColor = UIColor.init(red: 108/255, green: 234/255, blue: 248/255, alpha: 0.5)
 
     var chatDataSource : chatTableViewDataSource
     var messageRepo : MessageRepository
@@ -21,6 +22,8 @@ class ChatViewController: UIViewController {
         messageRepo = MessageRepository(parseId: "W35VTEicngcQGNj1oPbSRR4eaHOcaYkD0zw7Rmgf", parseKey: "u5aWKUJWqe3Nih2U3dQ1CC0iSEkBr3ybgMPBy8UN")
         super.init(coder: coder)
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,14 +47,36 @@ class ChatViewController: UIViewController {
             return table
         }
         
-    
-        let table = addTable(0, 0, Int(view.bounds.width), Int(view.bounds.height), UIColor.yellowColor())
+        func addInputBox(x: Int, y: Int, w: Int, h: Int) -> UITextField {
+            var rect = CGRectMake(CGFloat(x), CGFloat(y), CGFloat(w), CGFloat(h))
+            var field = UITextField(frame: rect)
+            //field.frame.size.height = CGFloat(h)
+            //field.frame.size.width = CGFloat(w)
+            field.backgroundColor = UIColor.yellowColor()
+            //self.view.addSubview(field)
+            return field
+        }
+        
+        let table = addTable(0, 0, Int(view.bounds.width), Int(view.bounds.height), jonahsBlue)
         
         messageRepo.getMessages { (messages, error) -> Void in
             self.chatDataSource.messageBuffer = messages!
             table.reloadData()
             println("reloaded table after getting messages")
         }
+        
+        let inputBox = addInputBox(100, 400, 200, 100)
+        
+        inputBox.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.view.addSubview(inputBox)
+        let bottomConstraint : NSLayoutConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[inputBox]-50-|", options: NSLayoutFormatOptions(0), metrics: nil, views: ["inputBox": inputBox])[0] as! NSLayoutConstraint
+        let heightConstraint : NSLayoutConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[inputBox(==70)]", options: NSLayoutFormatOptions(0), metrics: nil, views: ["inputBox": inputBox])[0] as! NSLayoutConstraint
+        let widthConstraint : NSLayoutConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:[inputBox(==superview)]", options: NSLayoutFormatOptions(0), metrics: nil, views: ["inputBox": inputBox, "superview":self.view])[0] as! NSLayoutConstraint
+        
+        view.addConstraint(bottomConstraint)
+        view.addConstraint(heightConstraint)
+        view.addConstraint(widthConstraint)
+        
         
         func messageDelta(currentMessages: [Message], oldLastId: String) -> [Message] {
             var indexOfOld = -1;
@@ -86,11 +111,11 @@ class ChatViewController: UIViewController {
         }
         
         
-//        let testObject = PFObject(className: "TestObject")
-//        testObject["foo"] = "bar"
-//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-//            println("Object has been saved.")
-//        }
+        let testObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            println("Object has been saved.")
+        }
     }
     
     func interval(interval: UInt64, closure: () -> Void) -> dispatch_source_t! {
