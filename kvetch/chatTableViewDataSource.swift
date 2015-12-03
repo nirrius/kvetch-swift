@@ -21,11 +21,12 @@ class chatTableViewDataSource : NSObject, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("chatCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("chatCell", forIndexPath: indexPath) 
         
         // cell.detailTextLabel?.text = "detail text label"
         let message : Message = messageBuffer[indexPath.item]
         cell.textLabel?.text = message.objectForKey("body") as? String
+        cell.textLabel?.isAccessibilityElement = true
         
         
         return cell

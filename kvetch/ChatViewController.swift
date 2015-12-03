@@ -17,7 +17,7 @@ class ChatViewController: UIViewController {
     var messageRepo : MessageRepository
     var newMessageTimer: dispatch_source_t!
     
-    required init(coder : NSCoder) {
+    required init?(coder : NSCoder) {
         self.chatDataSource = chatTableViewDataSource()
         messageRepo = MessageRepository(parseId: "W35VTEicngcQGNj1oPbSRR4eaHOcaYkD0zw7Rmgf", parseKey: "u5aWKUJWqe3Nih2U3dQ1CC0iSEkBr3ybgMPBy8UN")
         super.init(coder: coder)
@@ -29,16 +29,16 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let logInButton = TWTRLogInButton(logInCompletion: {
-            (session: TWTRSession!, error: NSError!) in
-            // play with Twitter session
-        })
-        logInButton.center = self.view.center
-        self.view.addSubview(logInButton)
+//        let logInButton = TWTRLogInButton(logInCompletion: {
+//            (session: TWTRSession!, error: NSError!) in
+//            // play with Twitter session
+//        })
+//        logInButton.center = self.view.center
+//        self.view.addSubview(logInButton)
 
         func addTable(x : Float, y: Int , w : Int, h : Int, color: UIColor) -> UITableView {
-            var rect = CGRectMake(CGFloat(x), CGFloat(y), CGFloat(w), CGFloat(h))
-            var table = UITableView(frame: rect, style: UITableViewStyle.Plain)
+            let rect = CGRectMake(CGFloat(x), CGFloat(y), CGFloat(w), CGFloat(h))
+            let table = UITableView(frame: rect, style: UITableViewStyle.Plain)
             table.backgroundColor = color
             table.registerClass(UITableViewCell.self, forCellReuseIdentifier: "chatCell")
             table.dataSource = self.chatDataSource
@@ -48,30 +48,31 @@ class ChatViewController: UIViewController {
         }
         
         func addInputBox(x: Int, y: Int, w: Int, h: Int) -> UITextField {
-            var rect = CGRectMake(CGFloat(x), CGFloat(y), CGFloat(w), CGFloat(h))
-            var field = UITextField(frame: rect)
+            let rect = CGRectMake(CGFloat(x), CGFloat(y), CGFloat(w), CGFloat(h))
+            let field = UITextField(frame: rect)
             //field.frame.size.height = CGFloat(h)
             //field.frame.size.width = CGFloat(w)
             field.backgroundColor = UIColor.yellowColor()
+            field.isAccessibilityElement = true
             //self.view.addSubview(field)
             return field
         }
         
-        let table = addTable(0, 0, Int(view.bounds.width), Int(view.bounds.height), jonahsBlue)
+        let table = addTable(0, y: 0, w: Int(view.bounds.width), h: Int(view.bounds.height), color: jonahsBlue)
         
         messageRepo.getMessages { (messages, error) -> Void in
             self.chatDataSource.messageBuffer = messages!
             table.reloadData()
-            println("reloaded table after getting messages")
+            print("reloaded table after getting messages")
         }
         
-        let inputBox = addInputBox(100, 400, 200, 100)
+        let inputBox = addInputBox(100, y: 400, w: 200, h: 100)
         
-        inputBox.setTranslatesAutoresizingMaskIntoConstraints(false)
+        inputBox.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(inputBox)
-        let bottomConstraint : NSLayoutConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[inputBox]-50-|", options: NSLayoutFormatOptions(0), metrics: nil, views: ["inputBox": inputBox])[0] as! NSLayoutConstraint
-        let heightConstraint : NSLayoutConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[inputBox(==70)]", options: NSLayoutFormatOptions(0), metrics: nil, views: ["inputBox": inputBox])[0] as! NSLayoutConstraint
-        let widthConstraint : NSLayoutConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:[inputBox(==superview)]", options: NSLayoutFormatOptions(0), metrics: nil, views: ["inputBox": inputBox, "superview":self.view])[0] as! NSLayoutConstraint
+        let bottomConstraint : NSLayoutConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[inputBox]-50-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["inputBox": inputBox])[0] as NSLayoutConstraint
+        let heightConstraint : NSLayoutConstraint = NSLayoutConstraint.constraintsWithVisualFormat("V:[inputBox(==70)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["inputBox": inputBox])[0] as NSLayoutConstraint
+        let widthConstraint : NSLayoutConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:[inputBox(==superview)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["inputBox": inputBox, "superview":self.view])[0] as NSLayoutConstraint
         
         view.addConstraint(bottomConstraint)
         view.addConstraint(heightConstraint)
@@ -90,14 +91,14 @@ class ChatViewController: UIViewController {
         
         func handleNewMessages(closure: ([Message]) -> Void) -> Void {
             newMessageTimer = interval(1) {
-                println("checking for new messages")
+                print("checking for new messages")
                 self.messageRepo.getMessages { (currentMessages, error) -> Void in
                     if (currentMessages == nil || currentMessages!.count == 0) {
                         return
                     }
                     let oldLastId = self.chatDataSource.messageBuffer.last?.objectId
                     if (currentMessages!.last?.objectId != oldLastId) {
-                        let newMessages = messageDelta(currentMessages!, oldLastId!)
+                        let newMessages = messageDelta(currentMessages!, oldLastId: oldLastId!)
                         closure(newMessages)
                     }
                 }
@@ -114,7 +115,7 @@ class ChatViewController: UIViewController {
         let testObject = PFObject(className: "TestObject")
         testObject["foo"] = "bar"
         testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-            println("Object has been saved.")
+            print("Object has been saved.")
         }
     }
     

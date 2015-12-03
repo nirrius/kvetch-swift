@@ -37,10 +37,18 @@
 		2CD5E5871B00943D00A4251C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD5E5841B00943D00A4251C /* Fabric.framework */; };
 		2CD5E5881B00943D00A4251C /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD5E5851B00943D00A4251C /* TwitterKit.framework */; };
 		2CD5E5891B00943D00A4251C /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2CD5E5861B00943D00A4251C /* TwitterKitResources.bundle */; };
+		2CFB7CDB1BE2F3B80041C071 /* kvetchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFB7CDA1BE2F3B80041C071 /* kvetchUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		07E336D31B00103E001C427C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07E336B31B00103D001C427C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07E336BA1B00103D001C427C;
+			remoteInfo = kvetch;
+		};
+		2CFB7CDD1BE2F3B80041C071 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07E336B31B00103D001C427C /* Project object */;
 			proxyType = 1;
@@ -85,6 +93,9 @@
 		2CD5E5841B00943D00A4251C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		2CD5E5851B00943D00A4251C /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		2CD5E5861B00943D00A4251C /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		2CFB7CD81BE2F3B80041C071 /* kvetchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kvetchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CFB7CDA1BE2F3B80041C071 /* kvetchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kvetchUITests.swift; sourceTree = "<group>"; };
+		2CFB7CDC1BE2F3B80041C071 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +130,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2CFB7CD51BE2F3B80041C071 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -145,6 +163,7 @@
 				2CD59A501B0011FD0057D381 /* Bolts.framework */,
 				07E336BD1B00103D001C427C /* kvetch */,
 				07E336D51B00103E001C427C /* kvetchTests */,
+				2CFB7CD91BE2F3B80041C071 /* kvetchUITests */,
 				07E336BC1B00103D001C427C /* Products */,
 				2CBFA0D91B112ABF005D8FF4 /* TwitterCore.framework */,
 				2CBFA0DA1B112ABF005D8FF4 /* DigitsKit.framework */,
@@ -157,6 +176,7 @@
 			children = (
 				07E336BB1B00103D001C427C /* kvetch.app */,
 				07E336D21B00103E001C427C /* kvetchTests.xctest */,
+				2CFB7CD81BE2F3B80041C071 /* kvetchUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +223,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2CFB7CD91BE2F3B80041C071 /* kvetchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2CFB7CDA1BE2F3B80041C071 /* kvetchUITests.swift */,
+				2CFB7CDC1BE2F3B80041C071 /* Info.plist */,
+			);
+			path = kvetchUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -242,13 +271,33 @@
 			productReference = 07E336D21B00103E001C427C /* kvetchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		2CFB7CD71BE2F3B80041C071 /* kvetchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CFB7CE11BE2F3B90041C071 /* Build configuration list for PBXNativeTarget "kvetchUITests" */;
+			buildPhases = (
+				2CFB7CD41BE2F3B80041C071 /* Sources */,
+				2CFB7CD51BE2F3B80041C071 /* Frameworks */,
+				2CFB7CD61BE2F3B80041C071 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2CFB7CDE1BE2F3B80041C071 /* PBXTargetDependency */,
+			);
+			name = kvetchUITests;
+			productName = kvetchUITests;
+			productReference = 2CFB7CD81BE2F3B80041C071 /* kvetchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		07E336B31B00103D001C427C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Nirrius;
 				TargetAttributes = {
 					07E336BA1B00103D001C427C = {
@@ -256,6 +305,10 @@
 					};
 					07E336D11B00103E001C427C = {
 						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 07E336BA1B00103D001C427C;
+					};
+					2CFB7CD71BE2F3B80041C071 = {
+						CreatedOnToolsVersion = 7.1;
 						TestTargetID = 07E336BA1B00103D001C427C;
 					};
 				};
@@ -275,6 +328,7 @@
 			targets = (
 				07E336BA1B00103D001C427C /* kvetch */,
 				07E336D11B00103E001C427C /* kvetchTests */,
+				2CFB7CD71BE2F3B80041C071 /* kvetchUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -294,6 +348,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		07E336D01B00103E001C427C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CFB7CD61BE2F3B80041C071 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -340,6 +401,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2CFB7CD41BE2F3B80041C071 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CFB7CDB1BE2F3B80041C071 /* kvetchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -347,6 +416,11 @@
 			isa = PBXTargetDependency;
 			target = 07E336BA1B00103D001C427C /* kvetch */;
 			targetProxy = 07E336D31B00103E001C427C /* PBXContainerItemProxy */;
+		};
+		2CFB7CDE1BE2F3B80041C071 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07E336BA1B00103D001C427C /* kvetch */;
+			targetProxy = 2CFB7CDD1BE2F3B80041C071 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -391,6 +465,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -406,7 +481,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -445,7 +520,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -465,6 +540,7 @@
 				);
 				INFOPLIST_FILE = kvetch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nirrius.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "kvetch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -483,6 +559,7 @@
 				);
 				INFOPLIST_FILE = kvetch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nirrius.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "kvetch-Bridging-Header.h";
 			};
@@ -502,6 +579,7 @@
 				);
 				INFOPLIST_FILE = kvetchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nirrius.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kvetch.app/kvetch";
 			};
@@ -517,8 +595,34 @@
 				);
 				INFOPLIST_FILE = kvetchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nirrius.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kvetch.app/kvetch";
+			};
+			name = Release;
+		};
+		2CFB7CDF1BE2F3B90041C071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = kvetchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jonah.kvetchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = kvetch;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		2CFB7CE01BE2F3B90041C071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = kvetchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jonah.kvetchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = kvetch;
+				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -551,6 +655,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		2CFB7CE11BE2F3B90041C071 /* Build configuration list for PBXNativeTarget "kvetchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CFB7CDF1BE2F3B90041C071 /* Debug */,
+				2CFB7CE01BE2F3B90041C071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

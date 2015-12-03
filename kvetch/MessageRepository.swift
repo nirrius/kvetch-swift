@@ -23,7 +23,7 @@ class MessageRepository {
     
     func getMessages(cb: (messages: [Message]?, error: Error?) -> Void) {
        
-        var recent = PFQuery(className: Message.parseClassName())
+        let recent = PFQuery(className: Message.parseClassName())
         recent.limit = 20
         
         recent.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
